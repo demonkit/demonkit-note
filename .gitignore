@@ -1,0 +1,6 @@
+
+#ignore Mac OS X files
+.DS_Store
+#Vim leave-behinds
+*.swp
+*~
