@@ -20,19 +20,20 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'L9'
-Bundle 'vim-scripts/FuzzyFinder'
+Bundle 'FuzzyFinder'
 
 " code checkers
-Bundle 'hdima/python-syntax'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'scrooloose/syntastic'
-Bundle 'kevinw/pyflakes-vim'
-Bundle 'vim-scripts/pep8'
-Bundle 'vim-scripts/pylint'
+" Bundle 'hdima/python-syntax'
+" Bundle 'scrooloose/syntastic'
+" Bundle 'kevinw/pyflakes-vim'
+" Bundle 'vim-scripts/pep8'
+" Bundle 'pylint'
+
 " code dictionary
-Bundle 'vim-scripts/Pydiction'
+" Bundle 'vim-scripts/Pydiction'
+
 " code completion
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'davidhalter/jedi-vim'
 
 " docs
@@ -42,7 +43,9 @@ Bundle 'fs111/pydoc.vim'
 Bundle 'cschlueter/vim-mustang'
 
 " utilities
+"automatic closing of quotes, parenthesis, brackets, et
 Bundle 'Raimondi/delimitMate'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " editors
 Bundle 'Rykka/riv.vim'
@@ -237,6 +240,14 @@ nmap <leader>w :w!<cr>
 
 " Fast editing of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
+
+" better indention
+vnoremap < <gv
+vnoremap > >gv
+
+" formatting paragraphs
+vmap Q gq
+nmap Q gqap
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -434,6 +445,9 @@ let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMouseMode=3
 let g:NERDTreeWinSize=25
 
+" nerd ignore file types
+let NERDTreeIgnore = ['\.pyc$', '\.out$']
+
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
 function! s:CloseIfOnlyNerdTreeLeft()
@@ -447,23 +461,33 @@ function! s:CloseIfOnlyNerdTreeLeft()
 endfunction
 
 " python-syntax
-let python_highlight_all=1
+" let python_highlight_all=1
 
 " pyflakes
-let g:pyflakes_use_quickfix = 0
+" let g:pyflakes_use_quickfix = 0
 
 " pep8 mapped to F6
-let g:pep8_map='<F6>'
+" let g:pep8_map='<F6>'
 
 " pydoc
 let g:pydoc_cmd = 'python -m pydoc'
 let g:pydoc_open_cmd = 'tabnew'
 
 " syntastic
-let g:syntastic_python_checkers = ['pylint', 'pep8', 'pyflakes']
+" let g:syntastic_python_checkers = ['pylint', 'pep8', 'pyflakes']
+
+" pydiction_location
+" let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+
+" jedi disable .
+" let g:jedi#auto_initialization = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = "<C-n>"
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " ===> all others
 """"""""""""""""""""""""""""""""""""""""""""""
-set ofu=syntaxcomplete#Complete
-imap <silent> ` <C-X><C-O>
+" the following line seems to have no use, comment it
+" set ofu=syntaxcomplete#Complete
+" imap <silent> ` <C-X><C-O>
