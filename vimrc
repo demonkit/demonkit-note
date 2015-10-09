@@ -9,8 +9,8 @@ set nocompatible " be iMproved
 filetype off                   " required!
 filetype plugin indent on     " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
@@ -36,6 +36,9 @@ Bundle 'FuzzyFinder'
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'davidhalter/jedi-vim'
 
+" code styles
+Bundle 'Yggdroot/indentLine'
+
 " docs
 Bundle 'fs111/pydoc.vim'
 
@@ -46,6 +49,7 @@ Bundle 'cschlueter/vim-mustang'
 "automatic closing of quotes, parenthesis, brackets, et
 Bundle 'Raimondi/delimitMate'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'kien/ctrlp.vim'
 
 " editors
 Bundle 'Rykka/riv.vim'
@@ -83,6 +87,7 @@ Bundle 'plasticboy/vim-markdown'
 " Tagbar                = , + l
 " 
 
+call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -155,6 +160,7 @@ set guioptions-=T
 set background=dark
 
 " colorscheme mustang
+set background=dark
 set gfn=Liberation\ Mono\ 10 
 
 " Use UTF-8 as the default buffer encoding
@@ -192,6 +198,7 @@ set numberwidth=1             " using only 1 column (and 1 space) while possible
 set title                     " show title in console title bar
 set pastetoggle=<F3>          " Press F3 for toggle paste mode
 set cursorline
+set cursorcolumn
 set colorcolumn=80 " Mark 80th column with a red line
 
 
@@ -356,8 +363,12 @@ autocmd FileType html nnoremap <buffer> <leader>f Vatzf
 " Add new python file's headers
 function! s:insert_description(fileType)
     let template = "/root/.vim/plugin/my_templates/".a:fileType.".template"
+    let filename = expand("%:t") " Get file name without path
+    let date = strftime("%Y-%m-%d %H:%M") " Get the current year in format YYYY  
     let i = 0
     for line in readfile(template)
+        let line = substitute(line, "<filename>", filename, "ge")
+        let line = substitute(line, "<date>", date, "ge")
         call append(i, line)
         let i += 1
     endfor
@@ -369,7 +380,7 @@ autocmd BufNewFile *.py call <SID>insert_description("py")
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ===> all plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open Window Explorer NerdTree & Tagbar using (left-right sidebar) using <F8>
@@ -484,6 +495,21 @@ let g:pydoc_open_cmd = 'tabnew'
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = "<C-n>"
+
+" indentLine settings
+let b:indentLine_enabled = 1
+hi IndentGuidesOdd  ctermbg=white
+hi IndentGuidesEven ctermbg=lightgrey
+" let g:indentLine_auto_colors=1
+" let g:indentLine_color_term=000
+
+map <leader>i :IndentLinesToggle<CR>
+map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>p Oimport traceback; print traceback.format_exc() # TRACKBACK<C-c>
+
+" ctrl-p settings
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " ===> all others
