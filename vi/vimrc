@@ -23,14 +23,10 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 
 " code checkers
-" Bundle 'hdima/python-syntax'
+Bundle 'nvie/vim-flake8'
 " Bundle 'scrooloose/syntastic'
-" Bundle 'kevinw/pyflakes-vim'
-" Bundle 'vim-scripts/pep8'
-" Bundle 'pylint'
 
 " code dictionary
-" Bundle 'vim-scripts/Pydiction'
 
 " code completion
 " Bundle 'Valloric/YouCompleteMe'
@@ -54,38 +50,6 @@ Bundle 'kien/ctrlp.vim'
 " editors
 Bundle 'Rykka/riv.vim'
 Bundle 'plasticboy/vim-markdown'
-
-" INSTALLED PACKAGES
-" =========================================
-" Color scheme Mustang : http://hcalves.deviantart.com/art/Mustang-Vim-Colorscheme-98974484
-" Syntastic :https://github.com/scrooloose/syntastic
-" FuzzyFinder : http://www.vim.org/scripts/script.php?script_id=1984
-" L9 : http://www.vim.org/scripts/script.php?script_id=3252
-" Pyflakes : https://github.com/kevinw/pyflakes-vim
-" Pep8 : https://github.com/vim-scripts/pep8
-" NerdTree : https://github.com/scrooloose/nerdtree
-" NerdCommenter : https://github.com/scrooloose/nerdcommenter
-" Tagbar : https://github.com/majutsushi/tagbar
-" Sparkup : http://jetpackweb.com/blog/2010/03/04/write-html-faster-with-sparkup-vim-and-textmate/
-" UltiSnips : http://www.vim.org/scripts/script.php?script_id=2715, 
-"             http://fueledbylemons.com/blog/2011/07/27/why-ultisnips/
-" MRU    : https://github.com/vim-scripts/mru.vim
-" Tagbar : https://github.com/majutsushi/tagbar
-" NeoComplcache : https://github.com/Shougo/neocomplcache
-" IndentPython : https://github.com/vim-scripts/indentpython.vim
-" Fugitive : https://github.com/tpope/vim-fugitive
-
-" Key Shorcuts by Default
-" Leader                = ,
-" MRU                   = , + space
-" Pep8                  = F6
-" FileManager + Tagbar  = F8
-" FileManager           = , + t
-" FuzzFinder Files      = , + m
-" FuzzFinder Buffer     = , + b
-" File Explorer         = , + t
-" Tagbar                = , + l
-" 
 
 call vundle#end()
 
@@ -161,7 +125,7 @@ set background=dark
 
 " colorscheme mustang
 set background=dark
-set gfn=Liberation\ Mono\ 10 
+set gfn=Liberation\ Mono\ 10
 
 " Use UTF-8 as the default buffer encoding
 set encoding=utf8
@@ -362,7 +326,7 @@ autocmd FileType html nnoremap <buffer> <leader>f Vatzf
 
 " Add new python file's headers
 function! s:insert_description(fileType)
-    let template = "/root/.vim/plugin/my_templates/".a:fileType.".template"
+    let template = "/home/yuyang0-s/.vim/plugin/my_templates/".a:fileType.".template"
     let filename = expand("%:t") " Get file name without path
     let date = strftime("%Y-%m-%d %H:%M") " Get the current year in format YYYY  
     let i = 0
@@ -471,41 +435,49 @@ function! s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
-" python-syntax
-" let python_highlight_all=1
+
+" pep8
+" let g:pep8_map='<leader>8'
 
 " pyflakes
 " let g:pyflakes_use_quickfix = 0
 
-" pep8 mapped to F6
-" let g:pep8_map='<F6>'
+
+" syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_python_checkers = ['flake8']
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+
 
 " pydoc
 let g:pydoc_cmd = 'python -m pydoc'
 let g:pydoc_open_cmd = 'tabnew'
 
-" syntastic
-" let g:syntastic_python_checkers = ['pylint', 'pep8', 'pyflakes']
-
-" pydiction_location
-" let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
 " jedi disable .
-" let g:jedi#auto_initialization = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = "<C-n>"
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_select_first = 1
+let g:jedi#popup_on_dot = 0
+let g:jedi#goto_command="<leader>d"
 
 " indentLine settings
-let b:indentLine_enabled = 1
+let g:indentLine_enabled = 1
 hi IndentGuidesOdd  ctermbg=white
 hi IndentGuidesEven ctermbg=lightgrey
-" let g:indentLine_auto_colors=1
-" let g:indentLine_color_term=000
+let g:indentLine_auto_colors=1
+let g:indentLine_color_term=239
 
 map <leader>i :IndentLinesToggle<CR>
-map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
-map <Leader>p Oimport traceback; print traceback.format_exc() # TRACKBACK<C-c>
+map <Leader>b Oimport pdb; pdb.set_trace()  # TODO: BREAKPOINT, remove it<C-c>
+map <Leader>p Oimport traceback; print traceback.format_exc()  # TODO: TRACKBACK, remove it<C-c>
 
 " ctrl-p settings
 let g:ctrlp_working_path_mode = 'ra'
