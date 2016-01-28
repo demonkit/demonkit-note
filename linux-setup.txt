@@ -1,6 +1,7 @@
 sudo apt-get install openssh-server
 sudo apt-get vim
 sudo apt-get install git
+sudo apt-get install tig
 sudo apt-get install zsh
 sudo apt-get install lrzsz
 
@@ -15,6 +16,7 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
+sudo pip install Flake8
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -32,3 +34,6 @@ passwd:
 virtualenwrapper:
 export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
+
+ssh password:
+alias sshp="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
