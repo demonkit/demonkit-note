@@ -18,6 +18,9 @@ sudo pip install virtualenvwrapper
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+git config --global user.email "yydemonkit@gmail.com"
+git config --global user.name demonkit
+
 
 # manually editing
 vim:
