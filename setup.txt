@@ -1,0 +1,64 @@
+# common setup
+
+mkdir -p $HOME/envs
+mkdir -p $HOME/work/repos/github/
+mkdir -p $HOME/work/repos/gitlab/
+
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+git clone git@github.com:demonkit/demonkit-note.git ~/work/repos/github/demonkit-note
+ln -s $HOME/work/repos/github/demonkit-note/vi/vimrc $HOME/.vimrc
+ln -s $HOME/work/repos/github/demonkit-note/zsh/mac.zshrc $HOME/.zshrc
+ln -s $HOME/work/repos/github/demonkit-note/tmux/mac.tmux.conf $HOME/.tmux.conf
+
+cp $HOME/work/repos/github/demonkit-note/vi/py.template ~/.vim/templates/my_templates/
+
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo pip install virtualenv
+sudo pip install virtualenvwrapper
+sudo pip install Flake8
+sudo pip install ipython
+
+git config --global user.email "yydemonkit@gmail.com"
+git config --global user.name demonkit
+
+
+# linux setup
+sudo apt-get install openssh-server
+sudo apt-get vim
+sudo apt-get install git
+sudo apt-get install tig
+sudo apt-get install zsh
+sudo apt-get install lrzsz
+sudo apt-get install lib32stdc++6 lib32z1 lib32z1-dev
+
+
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# jdk
+sudo apt-get install openjdk-7-jdk
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
+export PATH=$PATH:/usr/lib/jvm/java-7-openjdk/bin
+
+
+
+# manually editing
+vim:
+PluginInstall
+
+passwd:
+/usr/bin/zsh
+
+virtualenwrapper:
+export WORKON_HOME=~/envs
+source /usr/local/bin/virtualenvwrapper.sh
+
+ssh password:
+alias sshp="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
+
+zsh:
+setopt no_share_history
+
+
+# mac setup
+
