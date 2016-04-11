@@ -3,12 +3,14 @@
 mkdir -p $HOME/envs
 mkdir -p $HOME/work/repos/github/
 mkdir -p $HOME/work/repos/gitlab/
+mkdir -p $HOME/.ssh/socks
 
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 git clone git@github.com:demonkit/demonkit-note.git ~/work/repos/github/demonkit-note
 ln -s $HOME/work/repos/github/demonkit-note/vi/vimrc $HOME/.vimrc
 ln -s $HOME/work/repos/github/demonkit-note/zsh/mac.zshrc $HOME/.zshrc
 ln -s $HOME/work/repos/github/demonkit-note/tmux/mac.tmux.conf $HOME/.tmux.conf
+ln -s $HOME/work/repos/github/demonkit-note/ssh/config $HOME/.ssh/config
 
 cp $HOME/work/repos/github/demonkit-note/vi/py.template ~/.vim/templates/my_templates/
 

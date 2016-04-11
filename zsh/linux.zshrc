@@ -91,3 +91,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 alias sshp="ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no"
 alias cdl="cd $HOME/work/repos/gitlab"
 alias cdh="cd $HOME/work/repos/github"
+alias cdp="cd $HOME/work/projects"
+

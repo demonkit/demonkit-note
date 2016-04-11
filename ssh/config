@@ -1,0 +1,4 @@
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/socks/%h-%p-%r
+    ControlPersist yes

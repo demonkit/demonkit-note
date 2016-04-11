@@ -96,4 +96,5 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
 alias sshp="ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no"
 alias cdl="cd $HOME/work/repos/gitlab"
 alias cdh="cd $HOME/work/repos/github"
+alias cdp="cd $HOME/work/projects"
 
