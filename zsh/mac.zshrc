@@ -1,3 +1,4 @@
+set -o vi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -97,4 +98,4 @@ alias sshp="ssh -o PreferredAuthentications=keyboard-interactive,password -o Pub
 alias cdl="cd $HOME/work/repos/gitlab"
 alias cdh="cd $HOME/work/repos/github"
 alias cdp="cd $HOME/work/projects"
-
+alias moshp="mosh --ssh='ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no'"

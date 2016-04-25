@@ -1,4 +1,6 @@
-Host *
-    ControlMaster auto
-    ControlPath ~/.ssh/socks/%h-%p-%r
-    ControlPersist yes
+Host test
+    HostName 127.0.0.1
+    User test
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/some_key
+

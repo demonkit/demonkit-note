@@ -51,6 +51,9 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Rykka/riv.vim'
 Bundle 'plasticboy/vim-markdown'
 
+" mac dash integrity
+Bundle 'rizzatti/dash.vim'
+
 call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -326,7 +329,7 @@ autocmd FileType html nnoremap <buffer> <leader>f Vatzf
 
 " Add new python file's headers
 function! s:insert_description(fileType)
-    let template = "$HOME/.vim/".a:fileType.".template"
+    let template = "/Users/demonkit/.vim/templates/".a:fileType.".template"
     let filename = expand("%:t") " Get file name without path
     let date = strftime("%Y-%m-%d %H:%M") " Get the current year in format YYYY  
     let i = 0
