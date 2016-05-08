@@ -3,7 +3,7 @@
 mkdir -p $HOME/envs
 mkdir -p $HOME/work/repos/github/
 mkdir -p $HOME/work/repos/gitlab/
-mkdir -p $HOME/.ssh/socks
+mkdir -p $HOME/.ssh/sshpass
 
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 git clone git@github.com:demonkit/demonkit-note.git ~/work/repos/github/demonkit-note
@@ -11,6 +11,7 @@ ln -s $HOME/work/repos/github/demonkit-note/vi/vimrc $HOME/.vimrc
 ln -s $HOME/work/repos/github/demonkit-note/zsh/mac.zshrc $HOME/.zshrc
 ln -s $HOME/work/repos/github/demonkit-note/tmux/mac.tmux.conf $HOME/.tmux.conf
 ln -s $HOME/work/repos/github/demonkit-note/ssh/config $HOME/.ssh/config
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 cp $HOME/work/repos/github/demonkit-note/vi/py.template ~/.vim/templates/my_templates/
 
@@ -33,9 +34,8 @@ sudo apt-get install tig
 sudo apt-get install zsh
 sudo apt-get install lrzsz
 sudo apt-get install lib32stdc++6 lib32z1 lib32z1-dev
+sudo apt-get install sshpass
 
-
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # jdk
 sudo apt-get install openjdk-7-jdk
@@ -55,7 +55,7 @@ virtualenwrapper:
 export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
 
-ssh password:
+ssh password: using $HOME/.ssh/config
 alias sshp="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
 
 zsh:
@@ -63,4 +63,13 @@ setopt no_share_history
 
 
 # mac setup
+brew install sshpass
+brew install vim
+
+ln -s $HOME/work/repos/github/demonkit-note/bin/sshi $HOME/sshi
+ln -s $HOME/work/repos/github/demonkit-note/bin/moshi $HOME/moshi
+
+.zshrc:
+alias vim="/usr/local/Cellar/vim/7.4.1707/bin/vim"
+alias vi="/usr/local/Cellar/vim/7.4.1707/bin/vim"
 

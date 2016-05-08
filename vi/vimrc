@@ -68,6 +68,9 @@ let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ===> all sets
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au BufReadPost * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
+
 " Sets how many lines of history VIM has to remember
 set history=1000
 

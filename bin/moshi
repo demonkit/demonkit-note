@@ -1,0 +1,4 @@
+#!/bin/bash
+
+PASS_FILE="$HOME/.ssh/sshpass/$1"
+mosh --ssh="sshpass -f $PASS_FILE ssh" $1
