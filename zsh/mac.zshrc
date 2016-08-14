@@ -54,7 +54,9 @@ plugins=(git)
 
 # User configuration
 
-export PATH=/usr/local/go/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/go/bin:$HOME/bin:$PATH
+export PATH=$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Python/2.7/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -97,10 +99,13 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
 alias cdl="cd $HOME/work/repos/gitlab"
 alias cdh="cd $HOME/work/repos/github"
 alias cdp="cd $HOME/work/projects"
-alias vim="/usr/local/Cellar/vim/7.4.1707/bin/vim"
-alias vi="/usr/local/Cellar/vim/7.4.1707/bin/vim"
+alias vi=vim
+# alias vim="/usr/local/Cellar/vim/7.4.1707/bin/vim"
+# alias vi="/usr/local/Cellar/vim/7.4.1707/bin/vim"
 # backup alias
 # alias sshi="sshpass -f $HOME/.ssh/sshpass/inner ssh"
 # alias moshi="mosh --ssh='sshpass -f $HOME/.ssh/sshpass/inner ssh'"
 # alias sshp="ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no"
 # alias moshp="mosh --ssh='ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no'"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
