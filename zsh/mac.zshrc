@@ -7,6 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -97,11 +98,11 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
 
 # alias settings
 alias cdl="cd $HOME/work/repos/gitlab"
+alias cdd="cd $HOME/work/repos/gitlab/documentation"
 alias cdh="cd $HOME/work/repos/github"
 alias cdp="cd $HOME/work/projects"
 alias vi=vim
-# alias vim="/usr/local/Cellar/vim/7.4.1707/bin/vim"
-# alias vi="/usr/local/Cellar/vim/7.4.1707/bin/vim"
+alias sshl='cat ~/.ssh/config | grep "Host "'
 # backup alias
 # alias sshi="sshpass -f $HOME/.ssh/sshpass/inner ssh"
 # alias moshi="mosh --ssh='sshpass -f $HOME/.ssh/sshpass/inner ssh'"
