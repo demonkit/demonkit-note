@@ -56,7 +56,7 @@ plugins=(git)
 # User configuration
 
 export PATH=/usr/local/go/bin:$HOME/bin:$PATH
-export PATH=$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Android/sdk/build-tools/23.0.3:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$PATH
 export PATH=$HOME/Library/Python/2.7/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
