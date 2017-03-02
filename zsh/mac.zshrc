@@ -55,9 +55,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH=/usr/local/go/bin:$HOME/bin:$PATH
-export PATH=$HOME/Library/Android/sdk/build-tools/23.0.3:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$PATH
-export PATH=$HOME/Library/Python/2.7/bin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,21 +86,36 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 setopt no_share_history
-
 # virtualenv settings
 export WORKON_HOME=$HOME/envs
 source $HOME/Library/Python/2.7/bin/virtualenvwrapper.sh
 
+# go settings
+export PATH=/usr/local/go/bin:$HOME/bin:$PATH
+
 # java settings
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
+
+# android settings
+export PATH=$HOME/Library/Android/sdk/build-tools/23.0.3:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/ndk-bundle:$PATH
+
+# spark settings
+export SPARK_HOME=/usr/local/spark
+export PATH=$SPARK_HOME/bin:$PATH
+
+# python settings
+export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 # alias settings
-alias cdl="cd $HOME/work/repos/gitlab"
+alias cde="cd $HOME/envs"
 alias cdd="cd $HOME/work/repos/gitlab/documentation"
 alias cdh="cd $HOME/work/repos/github"
+alias cdl="cd $HOME/work/repos/gitlab"
 alias cdp="cd $HOME/work/projects"
 alias vi=vim
-alias sshl='cat ~/.ssh/config | grep "Host "'
+alias sshl='cat .ssh/config| egrep "Host|HostName" --color=auto'
+alias cowasy="/usr/local/Cellar/cowsay/3.04/bin/cowsay"
+alias cmatrix="/usr/local/Cellar/cmatrix/1.2a/bin/cmatrix"
 # backup alias
 # alias sshi="sshpass -f $HOME/.ssh/sshpass/inner ssh"
 # alias moshi="mosh --ssh='sshpass -f $HOME/.ssh/sshpass/inner ssh'"
