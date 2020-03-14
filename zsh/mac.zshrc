@@ -1,3 +1,4 @@
+
 set -o vi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -6,8 +7,11 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+# ZSH_THEME="powerline"
 ZSH_THEME="robbyrussell"
-# ZSH_THEME="agnoster"
+# ZSH_THEME="aussiegeek"
+# ZSH_THEME="simple"
+# ZSH_THEME="demonkit"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +55,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(z fast-syntax-highlighting git)
 
 # User configuration
 
@@ -86,40 +90,20 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 setopt no_share_history
-# virtualenv settings
-export WORKON_HOME=$HOME/envs
-source $HOME/Library/Python/2.7/bin/virtualenvwrapper.sh
 
-# go settings
-export PATH=/usr/local/go/bin:$HOME/bin:$PATH
 
-# java settings
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
-
-# android settings
-export PATH=$HOME/Library/Android/sdk/build-tools/23.0.3:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/ndk-bundle:$PATH
-
-# spark settings
-export SPARK_HOME=/usr/local/spark
-export PATH=$SPARK_HOME/bin:$PATH
-
-# python settings
-export PATH=$HOME/Library/Python/2.7/bin:$PATH
-
-# alias settings
-alias cde="cd $HOME/envs"
-alias cdd="cd $HOME/work/repos/gitlab/documentation"
-alias cdh="cd $HOME/work/repos/github"
-alias cdl="cd $HOME/work/repos/gitlab"
-alias cdp="cd $HOME/work/projects"
-alias vi=vim
-alias sshl='cat .ssh/config| egrep "Host|HostName" --color=auto'
-alias cowasy="/usr/local/Cellar/cowsay/3.04/bin/cowsay"
-alias cmatrix="/usr/local/Cellar/cmatrix/1.2a/bin/cmatrix"
-# backup alias
-# alias sshi="sshpass -f $HOME/.ssh/sshpass/inner ssh"
-# alias moshi="mosh --ssh='sshpass -f $HOME/.ssh/sshpass/inner ssh'"
-# alias sshp="ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no"
-# alias moshp="mosh --ssh='ssh -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no'"
+source $HOME/.settings
+source $HOME/.alias
+source $HOME/.tab.bash
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# disable C-s & C-q
+# just for vim ?
+stty -ixon
+
+# colordiff
+function diff {
+    colordiff -u "$@" | less -RF
+}
+

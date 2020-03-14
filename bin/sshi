@@ -1,5 +1,0 @@
-#!/bin/bash
-
-PASS_FILE="$HOME/.ssh/sshpass/$1"
-
-sshpass -f $PASS_FILE ssh $1
